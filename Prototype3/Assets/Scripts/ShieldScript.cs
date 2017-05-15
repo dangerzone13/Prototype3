@@ -10,7 +10,7 @@ public class ShieldScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		
+		//shield = GameObject.FindGameObjectWithTag ("Shield");
 	}
 	
 	// Update is called once per frame

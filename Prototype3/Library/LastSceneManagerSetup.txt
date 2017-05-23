@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Test_Scene_With_Map_(with_optimized_colliders).unity
+- path: Assets/Test Field.unity
   isLoaded: 1
   isActive: 1

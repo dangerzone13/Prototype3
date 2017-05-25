@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class bulletscript : MonoBehaviour {
     public float speed;
-
 	// Use this for initialization
 	void Start () {
         GetComponent<Rigidbody>().AddForce(this.transform.right * speed);
@@ -14,4 +13,25 @@ public class bulletscript : MonoBehaviour {
 	void Update () {
 		
 	}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "shield")
+        {
+            gameObject.tag = "bulletdef";
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "shield")
+        {
+            gameObject.tag = "bulletdef";
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "shield")
+        {
+            gameObject.tag = "bulletdef";
+        }
+    }
 }

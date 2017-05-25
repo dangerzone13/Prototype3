@@ -10,11 +10,13 @@ public class TurretStill : MonoBehaviour
     public GameObject powerbox;
 
     public bool awake;
+    private Animator anim;
 
     // Use this for initialization
     void Start()
     {
         //set timer for shot intervals.
+        anim = GetComponent<Animator>(); 
     }
 
     void OnTriggerEnter(Collider other)
@@ -45,7 +47,14 @@ public class TurretStill : MonoBehaviour
         reset count down after each shot
 
         if moving turrate: find player. set objects angle to face player everyframe.*/
-
+        if (awake == true)
+        {
+            anim.SetBool("awake",true);
+        }
+        else
+        {
+            anim.SetBool("awake", false);
+        }
 
     }
 }

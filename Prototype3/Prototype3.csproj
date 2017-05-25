@@ -102,6 +102,7 @@
     <Compile Include="Assets\Scripts\ShieldThrow.cs" />
     <Compile Include="Assets\Scripts\bulletscript.cs" />
     <Compile Include="Assets\TurretStill.cs" />
+    <Compile Include="Assets\doortrap.cs" />
     <Compile Include="Assets\generatorplug.cs" />
     <Compile Include="Assets\health.cs" />
     <Compile Include="Assets\opendoorauto.cs" />

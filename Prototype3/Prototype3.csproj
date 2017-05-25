@@ -101,6 +101,7 @@
     <Compile Include="Assets\TurretStill.cs" />
     <Compile Include="Assets\bulletscript.cs" />
     <Compile Include="Assets\health.cs" />
+    <Compile Include="Assets\opendoorauto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rd Person Controller\readme.txt" />

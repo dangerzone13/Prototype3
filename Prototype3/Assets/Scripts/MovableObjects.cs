@@ -36,7 +36,8 @@ public class MovableObjects : MonoBehaviour
 		{
 			Debug.Log ("Shield collides");
 			rb.constraints = RigidbodyConstraints.None;
-		}
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+        }
 	}
 
 	void OnCollisionExit (Collision col)
@@ -45,6 +46,7 @@ public class MovableObjects : MonoBehaviour
 		{
 			Debug.Log ("Player goes away");
 			rb.constraints = RigidbodyConstraints.None;
-		}
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+        }
 	}
 }

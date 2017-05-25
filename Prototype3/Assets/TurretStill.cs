@@ -18,20 +18,22 @@ public class TurretStill : MonoBehaviour
 
     public bool awake;
     private Animator anim;
+    private bool ded = false;
     //private Coroutine Spawn; 
 
     // Use this for initialization
     void Start()
     {
-        //set timer for shot intervals.
+        //set animation component
         anim = GetComponent<Animator>();
+        //set timer for shot intervals.
         InvokeRepeating("Spawn", spawntime, spawntime);
     }
 
     void OnTriggerEnter(Collider other)
     {
         // if the player is inside the turret collider : set the turret to be awake
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && ded == false)
         {
             awake = true;
             Debug.Log("Bleh");
@@ -40,10 +42,19 @@ public class TurretStill : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         //if the player leaves the turret collider : set turret to be asleep
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && ded == false)
         {
             awake = false;
             Debug.Log("Bleeeeh");
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "bulletdef" && ded == false)
+        {
+            ded = true;
+            anim.SetBool("awake", false);
         }
     }
 
@@ -56,7 +67,7 @@ public class TurretStill : MonoBehaviour
         reset count down after each shot
 
         if moving turrate: find player. set objects angle to face player everyframe.*/
-        if (awake == true)
+        if (awake == true && ded == false)
         {
             //animate 
             anim.SetBool("awake",true);
@@ -71,14 +82,16 @@ public class TurretStill : MonoBehaviour
         }
         else
         {
+            //animate down
             anim.SetBool("awake", false);
         }
 
     }
     void Spawn()
     {
-        if (awake == true)
+        if (awake == true && ded == false)
         {
+            //shoot bullet
             Instantiate(bullet, spawnpoint.transform.position, spawnpoint.transform.rotation);
         }
       

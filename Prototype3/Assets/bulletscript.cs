@@ -31,7 +31,7 @@ public class bulletscript : MonoBehaviour {
     {
         if (collision.gameObject.tag == "shield")
         {
-            gameObject.tag = "bulletdef";
+            this.gameObject.tag = "bulletdef";
         }
     }
 }

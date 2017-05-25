@@ -36,8 +36,10 @@ public class MoveBehaviour : GenericBehaviour
 		// Activate run by input.
 		run = Input.GetButton ("Run");
 		run = true;
-		if(Input.GetButtonDown ("Jump"))
+		if (Input.GetKeyDown (KeyCode.Space)) 
+		{
 			jump = true;
+		}
 
 		if (ShieldScript.active) 
 		{

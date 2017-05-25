@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class opendoorauto : MonoBehaviour {
 
+    public bool powered;
     private Animator anim;
     // Use this for initialization
 	void Start () {
@@ -17,7 +18,7 @@ public class opendoorauto : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         // if the player is inside the turret collider : set the turret to be awake
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && powered == true)
         {
             anim.SetBool("open", true);
             Debug.Log("Bleh");
@@ -26,7 +27,7 @@ public class opendoorauto : MonoBehaviour {
     void OnTriggerExit(Collider other)
     {
         // if the player is inside the turret collider : set the turret to be awake
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && powered == true)
         {
             anim.SetBool("open", false);
             Debug.Log("Bleh");
@@ -35,7 +36,7 @@ public class opendoorauto : MonoBehaviour {
     void OnTriggerStay(Collider other)
     {
         // if the player is inside the turret collider : set the turret to be awake
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && powered == true)
         {
             anim.SetBool("open", true);
             Debug.Log("Bleh");

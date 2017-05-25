@@ -97,9 +97,11 @@
     <Compile Include="Assets\Scripts\Camera Scripts\FollowTarget.cs" />
     <Compile Include="Assets\Scripts\Camera Scripts\FreeCameraLook.cs" />
     <Compile Include="Assets\Scripts\Camera Scripts\Pivot.cs" />
+    <Compile Include="Assets\Scripts\MovableObjects.cs" />
     <Compile Include="Assets\Scripts\ShieldScript.cs" />
+    <Compile Include="Assets\Scripts\ShieldThrow.cs" />
+    <Compile Include="Assets\Scripts\bulletscript.cs" />
     <Compile Include="Assets\TurretStill.cs" />
-    <Compile Include="Assets\bulletscript.cs" />
     <Compile Include="Assets\health.cs" />
     <Compile Include="Assets\opendoorauto.cs" />
   </ItemGroup>

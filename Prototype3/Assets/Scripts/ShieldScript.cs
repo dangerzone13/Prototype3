@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShieldScript : MonoBehaviour {
 
-	public bool active;
+	public static bool active;
 	public GameObject shield;
 
 	// Use this for initialization
@@ -16,13 +16,13 @@ public class ShieldScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown (KeyCode.Space)) 
+		if (Input.GetKeyDown (KeyCode.Mouse0)) 
 		{
 			active = true;
 			shield.SetActive (true);
 		}
 
-		if (Input.GetKeyUp (KeyCode.Space)) 
+		if (Input.GetKeyUp (KeyCode.Mouse0)) 
 		{
 			active = false;
 			shield.SetActive (false);

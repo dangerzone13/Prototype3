@@ -9,6 +9,7 @@ public class MoveBehaviour : GenericBehaviour
 	public float sprintSpeed = 2.0f;                // Default sprint speed.
 	public float speedDampTime = 0.1f;              // Default damp time to change the animations based on current speed.
 	public float jumpHeight = 1.0f;                 // Default jump height.
+	public bool shieldActive;
 
 	private float speed;                            // Moving speed.
 	private int jumpBool;                           // Animator variable related to jumping.
@@ -33,10 +34,30 @@ public class MoveBehaviour : GenericBehaviour
 	void Update ()
 	{
 		// Activate run by input.
-		//run = Input.GetButton ("Run");
+		run = Input.GetButton ("Run");
 		run = true;
 		if(Input.GetButtonDown ("Jump"))
 			jump = true;
+
+		if (ShieldScript.active) 
+		{
+			Debug.Log ("Shield works!");
+			shieldActive = true;
+		}
+
+		if (!ShieldScript.active) 
+		{
+			shieldActive = false;
+		}
+
+		if (shieldActive) 
+		{
+			runSpeed = 0.15f;
+		} 
+		else 
+		{
+			runSpeed = 1;
+		}
 	}
 
 	// LocalFixedUpdate overrides the virtual function of the base class.

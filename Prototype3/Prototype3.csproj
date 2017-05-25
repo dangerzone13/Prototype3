@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\Camera Scripts\Pivot.cs" />
     <Compile Include="Assets\Scripts\ShieldScript.cs" />
     <Compile Include="Assets\TurretStill.cs" />
+    <Compile Include="Assets\bulletscript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rd Person Controller\readme.txt" />

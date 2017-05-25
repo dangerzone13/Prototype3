@@ -7,7 +7,13 @@ public class TurretStill : MonoBehaviour
 
     public GameObject bullet;
     public GameObject player;
+    public GameObject spawnpoint;
     public GameObject powerbox;
+
+    public Transform target;
+
+    public float speed;
+
 
     public bool awake;
     private Animator anim;
@@ -49,7 +55,16 @@ public class TurretStill : MonoBehaviour
         if moving turrate: find player. set objects angle to face player everyframe.*/
         if (awake == true)
         {
+            //animate 
             anim.SetBool("awake",true);
+
+            /*rotate to face player
+            Vector3 targetDir = target.position - transform.position;
+            float step = speed * Time.deltaTime;
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
+            Debug.DrawRay(transform.position, newDir, Color.red);
+            bullet.transform.rotation = Quaternion.LookRotation(newDir);*/
+            Instantiate(bullet, spawnpoint.transform.position, spawnpoint.transform.rotation);
         }
         else
         {

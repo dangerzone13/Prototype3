@@ -8,6 +8,7 @@ public class AimBehaviour : GenericBehaviour
 	public float aimTurnSmoothing = 15.0f;                                // Speed of turn response when aiming to match camera facing.
 	public Vector3 aimPivotOffset = new Vector3(0.0f, 1.7f,  -0.3f);      // Offset to repoint the camera when aiming.
 	public Vector3 aimCamOffset   = new Vector3(0.8f, 0.0f, -1.0f);       // Offset to relocate the camera when aiming.
+	public GameObject shield;
 
 	private int aimBool;                                                  // Animator variable related to aiming.
 	private bool aim;                                                     // Boolean to determine whether or not the player is aiming.
@@ -33,6 +34,9 @@ public class AimBehaviour : GenericBehaviour
 		{
 			// Register this behaviour.
 			behaviourManager.RegisterBehaviour (this.behaviourCode);
+
+			//Shield Activates
+			shield.SetActive (true);
 		}
 		// Player just stopped aiming.
 		else if(behaviourManager.IsCurrentBehaviour(this.behaviourCode))
@@ -40,6 +44,9 @@ public class AimBehaviour : GenericBehaviour
 			// Ensure the camera will be back to original setup when is not aiming.
 			camScript.ResetTargetOffsets ();
 			camScript.ResetMaxVerticalAngle ();
+
+			//Shield Deactivates
+			shield.SetActive (false);
 
 			// Unregister this behaviour and set current behaviour to the default one.
 			behaviourManager.UnregisterBehaviour (this.behaviourCode);

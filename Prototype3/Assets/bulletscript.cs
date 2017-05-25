@@ -7,7 +7,7 @@ public class bulletscript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GetComponent<Rigidbody>().AddForce(this.transform.forward * speed);
+        GetComponent<Rigidbody>().AddForce(this.transform.right * speed);
 	}
 	
 	// Update is called once per frame

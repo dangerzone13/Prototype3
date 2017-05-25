@@ -13,16 +13,19 @@ public class TurretStill : MonoBehaviour
     public Transform target;
 
     public float speed;
+    public float spawntime;
 
 
     public bool awake;
     private Animator anim;
+    //private Coroutine Spawn; 
 
     // Use this for initialization
     void Start()
     {
         //set timer for shot intervals.
-        anim = GetComponent<Animator>(); 
+        anim = GetComponent<Animator>();
+        InvokeRepeating("Spawn", spawntime, spawntime);
     }
 
     void OnTriggerEnter(Collider other)
@@ -64,7 +67,7 @@ public class TurretStill : MonoBehaviour
             Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
             Debug.DrawRay(transform.position, newDir, Color.red);
             bullet.transform.rotation = Quaternion.LookRotation(newDir);*/
-            Instantiate(bullet, spawnpoint.transform.position, spawnpoint.transform.rotation);
+  
         }
         else
         {
@@ -72,4 +75,13 @@ public class TurretStill : MonoBehaviour
         }
 
     }
+    void Spawn()
+    {
+        if (awake == true)
+        {
+            Instantiate(bullet, spawnpoint.transform.position, spawnpoint.transform.rotation);
+        }
+      
+    }
+
 }

@@ -53,13 +53,14 @@
      <Compile Include="Assets\3rd Person Controller\PlayerScripts\BasicBehaviour.cs" />
      <Compile Include="Assets\3rd Person Controller\PlayerScripts\FlyBehaviour.cs" />
      <Compile Include="Assets\3rd Person Controller\PlayerScripts\MoveBehaviour.cs" />
-     <Compile Include="Assets\MovableObjects.cs" />
      <Compile Include="Assets\Scripts\Camera Scripts\FollowTarget.cs" />
      <Compile Include="Assets\Scripts\Camera Scripts\FreeCameraLook.cs" />
      <Compile Include="Assets\Scripts\Camera Scripts\Pivot.cs" />
+     <Compile Include="Assets\Scripts\MovableObjects.cs" />
      <Compile Include="Assets\Scripts\ShieldScript.cs" />
+     <Compile Include="Assets\Scripts\ShieldThrow.cs" />
+     <Compile Include="Assets\Scripts\bulletscript.cs" />
      <Compile Include="Assets\TurretStill.cs" />
-     <Compile Include="Assets\bulletscript.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

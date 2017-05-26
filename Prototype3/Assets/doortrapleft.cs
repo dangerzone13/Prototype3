@@ -41,21 +41,21 @@ public class doortrapleft : MonoBehaviour {
     }
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "Shield")
+        if (col.collider.gameObject.tag == "Shield")
         {
             stopped = true;
         }
     }
     void OnCollisionStay(Collision col)
     {
-        if (col.gameObject.tag == "Shield")
+        if (col.collider.gameObject.tag == "Shield")
         {
             stopped = true;
         }
     }
     void OnCollisionExit(Collision col)
     {
-        if (col.gameObject.tag == "Shield")
+        if (col.collider.gameObject.tag == "Shield")
         {
             stopped = false;
         }

@@ -7,6 +7,7 @@ public class doortrap : MonoBehaviour {
     private float minpos;
     private float newmax;
     public float speed;
+    public float speed2;
 
     public bool open;
     public bool stopped;
@@ -23,7 +24,7 @@ public class doortrap : MonoBehaviour {
 	void Update () {
         if (open == true && transform.position.x >= minpos && stopped == false)
         {
-            transform.position += Vector3.left * Time.deltaTime;
+            transform.position += Vector3.left * Time.deltaTime*speed2;
             if (transform.position.x <= minpos)
             {
                 open = false;
@@ -32,7 +33,7 @@ public class doortrap : MonoBehaviour {
 
         if (open == false && transform.position.x <= newmax && stopped == false)
         {
-            transform.position += Vector3.right * Time.deltaTime;
+            transform.position += Vector3.right * Time.deltaTime * speed;
            if (transform.position.x >= newmax)
            {
                open = true;

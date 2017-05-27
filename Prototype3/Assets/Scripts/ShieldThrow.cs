@@ -38,7 +38,7 @@ public class ShieldThrow : MonoBehaviour {
 			//bullet angle
 			shield.transform.rotation = throwPoint.transform.rotation;
 			Rigidbody rb = shield.GetComponent<Rigidbody>();
-			rb.velocity = throwPoint.transform.forward * 40;
+			rb.velocity = throwPoint.transform.forward * 20;
 			gameObject.GetComponent<ShieldThrow>().shield = null;
 		}
 	}

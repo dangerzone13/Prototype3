@@ -10,9 +10,8 @@ public class TurretStill : MonoBehaviour
     public GameObject spawnpoint;
     public GameObject powerbox;
 
-    public Transform target;
 
-    public float speed;
+
     public float spawntime;
 
 

@@ -107,6 +107,8 @@
     <Compile Include="Assets\generatorplug.cs" />
     <Compile Include="Assets\health.cs" />
     <Compile Include="Assets\opendoorauto.cs" />
+    <Compile Include="Assets\spiketrap.cs" />
+    <Compile Include="Assets\turretrotation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rd Person Controller\readme.txt" />

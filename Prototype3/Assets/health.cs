@@ -7,6 +7,7 @@ public class health : MonoBehaviour {
     public float dam;
 
     public bool ded = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -19,12 +20,18 @@ public class health : MonoBehaviour {
             ded = true;
             Application.Quit();
         }
-	}
+
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "bullet")
         {
             helth -= dam;
         }
+        if (collision.gameObject.tag == "instakill")
+        {
+            helth -= dam*2;
+        }
     }
-}
+
+    }

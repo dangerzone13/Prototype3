@@ -10,9 +10,8 @@ public class TurretStill : MonoBehaviour
     public GameObject spawnpoint;
     public GameObject powerbox;
 
-    public Transform target;
 
-    public float speed;
+
     public float spawntime;
 
 
@@ -51,7 +50,7 @@ public class TurretStill : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "bulletdef" && ded == false)
+        if (collision.gameObject.tag == "bulletdef" && ded == false && awake == true)
         {
             ded = true;
             anim.SetBool("awake", false);

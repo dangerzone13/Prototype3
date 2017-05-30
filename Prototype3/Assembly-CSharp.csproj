@@ -53,6 +53,7 @@
      <Compile Include="Assets\3rd Person Controller\PlayerScripts\BasicBehaviour.cs" />
      <Compile Include="Assets\3rd Person Controller\PlayerScripts\FlyBehaviour.cs" />
      <Compile Include="Assets\3rd Person Controller\PlayerScripts\MoveBehaviour.cs" />
+     <Compile Include="Assets\MyCharacterController.cs" />
      <Compile Include="Assets\Scripts\Camera Scripts\FollowTarget.cs" />
      <Compile Include="Assets\Scripts\Camera Scripts\FreeCameraLook.cs" />
      <Compile Include="Assets\Scripts\Camera Scripts\Pivot.cs" />

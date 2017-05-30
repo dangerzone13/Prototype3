@@ -8,10 +8,11 @@ public class ShieldThrow : MonoBehaviour {
 	public GameObject shield;
 	public GameObject throwPoint;
 	public AudioClip shieldThrow;
+	public static bool throwActive;
 
-	AudioSource playerAudio;
+	public AudioSource playerAudio;
 
-	Animator shieldWindUpAnim;
+	private Animator anim;
 
 	// Use this for initialization
 	void Awake () 
@@ -19,6 +20,8 @@ public class ShieldThrow : MonoBehaviour {
 		//playerArmsAnim = playerArms.gameObject.GetComponent<Animator>();
 		playerAudio = GetComponent<AudioSource>();
 		prefab = shield;
+
+		anim = GetComponent<Animator>();
 	}
 
 	// Update is called once per frame
@@ -28,6 +31,10 @@ public class ShieldThrow : MonoBehaviour {
 		{
 			//playerAudio.PlayOneShot(shootAudio);
 			//playerArmsAnim.Play("Shoot");
+
+			//Shield Throw Wind Up Bool True
+			anim.SetBool ("Throw Wind Up", true);
+			throwActive = true;
 		}
 
 		if (Input.GetMouseButtonUp (0)) 
@@ -40,6 +47,10 @@ public class ShieldThrow : MonoBehaviour {
 			Rigidbody rb = shield.GetComponent<Rigidbody>();
 			rb.velocity = throwPoint.transform.forward * 20;
 			gameObject.GetComponent<ShieldThrow>().shield = null;
+
+			//Shield Throw Wind Up Bool False
+			anim.SetBool ("Throw Wind Up", false);
+			throwActive = false;
 		}
 	}
 }

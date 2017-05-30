@@ -61,9 +61,13 @@
      <Compile Include="Assets\Scripts\ShieldThrow.cs" />
      <Compile Include="Assets\Scripts\bulletscript.cs" />
      <Compile Include="Assets\TurretStill.cs" />
+     <Compile Include="Assets\doortrap.cs" />
+     <Compile Include="Assets\doortrapleft.cs" />
      <Compile Include="Assets\generatorplug.cs" />
      <Compile Include="Assets\health.cs" />
      <Compile Include="Assets\opendoorauto.cs" />
+     <Compile Include="Assets\spiketrap.cs" />
+     <Compile Include="Assets\turretrotation.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

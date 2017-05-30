@@ -42,10 +42,15 @@ public class AimBehaviour : GenericBehaviour
 			shield.SetActive (true);
 
 			Debug.Log ("Shield Block");
-			//Aim Bool = True
+			//Block Animator Bool set to True
 			anim.SetBool ("Block", true);
+
+			//Blocking Animator Bool set to True
+			anim.SetBool("Blocking", true);
 		} 
-			
+
+		//If Player Moves While Blocking
+	
 		// Player just stopped aiming.
 		else if(behaviourManager.IsCurrentBehaviour(this.behaviourCode))
 		{
@@ -60,6 +65,8 @@ public class AimBehaviour : GenericBehaviour
 			behaviourManager.UnregisterBehaviour (this.behaviourCode);
 
 			anim.SetBool ("Block", false);
+
+			anim.SetBool("Blocking", false);
 		}
 
 		canSprint = !aim;

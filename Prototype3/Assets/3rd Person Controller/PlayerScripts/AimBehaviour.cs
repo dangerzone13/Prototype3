@@ -11,7 +11,8 @@ public class AimBehaviour : GenericBehaviour
 	public GameObject shield;
 
 	private int aimBool;                                                  // Animator variable related to aiming.
-	private bool aim;                                                     // Boolean to determine whether or not the player is aiming.
+	public bool aim;                                                     // Boolean to determine whether or not the player is aiming.
+	private Animator anim;
 
 	// Start is always called after any Awake functions.
 	void Start ()
@@ -21,6 +22,8 @@ public class AimBehaviour : GenericBehaviour
 
 		// Subscribe this behaviour on the manager.
 		behaviourManager.SubscribeBehaviour (this);
+
+		anim = GetComponent<Animator>();
 	}
 
 	// Update is used to set features regardless the active behaviour.
@@ -30,14 +33,19 @@ public class AimBehaviour : GenericBehaviour
 		aim = Input.GetButton("Aim");
 
 		// Player is aiming.
-		if (aim)
+		if (Input.GetButton("Aim")) 
 		{
 			// Register this behaviour.
 			behaviourManager.RegisterBehaviour (this.behaviourCode);
 
 			//Shield Activates
 			shield.SetActive (true);
-		}
+
+			Debug.Log ("Shield Block");
+			//Aim Bool = True
+			anim.SetBool ("Block", true);
+		} 
+			
 		// Player just stopped aiming.
 		else if(behaviourManager.IsCurrentBehaviour(this.behaviourCode))
 		{
@@ -50,6 +58,8 @@ public class AimBehaviour : GenericBehaviour
 
 			// Unregister this behaviour and set current behaviour to the default one.
 			behaviourManager.UnregisterBehaviour (this.behaviourCode);
+
+			anim.SetBool ("Block", false);
 		}
 
 		canSprint = !aim;

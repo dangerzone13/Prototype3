@@ -12,7 +12,8 @@ public class MovableObjects : MonoBehaviour
 	void Start () 
 	{
 		Rigidbody rb = GetComponent<Rigidbody>();
-	}
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -23,11 +24,11 @@ public class MovableObjects : MonoBehaviour
 	//If Player Collides with Box, it will be immovable. If Shield Collides with Box, it will be movable.
 	void OnCollisionEnter (Collision col)
 	{
-		if (col.gameObject.tag == "Player") 
+		/*if (col.gameObject.tag == "Player") 
 		{
 			Debug.Log ("Player collides");
 			rb.constraints = RigidbodyConstraints.FreezeAll;
-		}
+		}*/
 
 		Debug.Log("HIT! :" + col.gameObject);
 		Debug.Log("HIT! Collider: " + col.collider.gameObject);
@@ -42,10 +43,10 @@ public class MovableObjects : MonoBehaviour
 
 	void OnCollisionExit (Collision col)
 	{
-		if (col.gameObject.tag == "Player") 
+		if (col.gameObject.tag == "Shield") 
 		{
 			Debug.Log ("Player goes away");
-			//rb.constraints = RigidbodyConstraints.None;
+			rb.constraints = RigidbodyConstraints.FreezeAll;
             rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
 	}

@@ -16,7 +16,7 @@ public class turretrotation : MonoBehaviour
     void Update()
     {
         targetPoint = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z) - transform.position;
-        targetRotation = Quaternion.LookRotation(-targetPoint, Vector3.up);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10.0f);
+        targetRotation = (Quaternion.LookRotation(targetPoint, Vector3.up) * Quaternion.Euler(0, 75, 0));
+        transform.rotation = (Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10.0f));
     }
 }

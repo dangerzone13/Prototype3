@@ -8,7 +8,7 @@ public class AimBehaviour : GenericBehaviour
 	public float aimTurnSmoothing = 15.0f;                                // Speed of turn response when aiming to match camera facing.
 	public Vector3 aimPivotOffset = new Vector3(0.0f, 1.7f,  -0.3f);      // Offset to repoint the camera when aiming.
 	public Vector3 aimCamOffset   = new Vector3(0.8f, 0.0f, -1.0f);       // Offset to relocate the camera when aiming.
-	public GameObject shield;
+	public static GameObject shield;
 
 	private int aimBool;                                                  // Animator variable related to aiming.
 	public bool aim;                                                     // Boolean to determine whether or not the player is aiming.

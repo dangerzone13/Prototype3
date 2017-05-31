@@ -21,7 +21,6 @@ public class spiketrap : MonoBehaviour {
         // lift spike trap
         if (other.gameObject.tag == "Player")
         {
-
             anim.SetBool("triggered", true);
         }
     }
@@ -30,7 +29,7 @@ public class spiketrap : MonoBehaviour {
         if(collision.collider.gameObject.tag == "Shield")
         {
             Player.AddForce(Vector3.back * backforce, ForceMode.Acceleration);
-            Debug.Log("shiiiiiield");
+            Debug.Log("Shield Hits Trap");
         }
     }
 }

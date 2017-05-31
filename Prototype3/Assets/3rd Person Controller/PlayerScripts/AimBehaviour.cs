@@ -12,6 +12,11 @@ public class AimBehaviour : GenericBehaviour
 
 	private int aimBool;                                                  // Animator variable related to aiming.
 	public bool aim;                                                     // Boolean to determine whether or not the player is aiming.
+
+	public AudioSource playerAudio;
+	public AudioClip shieldActivate;
+	public bool canPlaySound = true;
+
 	private Animator anim;
 
 	// Start is always called after any Awake functions.
@@ -25,6 +30,7 @@ public class AimBehaviour : GenericBehaviour
 
 		anim = GetComponent<Animator>();
 
+		playerAudio = GetComponent<AudioSource> ();
         
 	}
 
@@ -35,15 +41,18 @@ public class AimBehaviour : GenericBehaviour
 		aim = Input.GetButton("Aim");
 
 		// Player is aiming.
-		if (Input.GetButton("Aim")) 
+		if (Input.GetButton("Aim") && canPlaySound) 
 		{
 			// Register this behaviour.
 			//behaviourManager.RegisterBehaviour (this.behaviourCode);
 
 			//Shield Activates
-			shield.GetComponent<Collider>().enabled = true;
-
+			//shield.GetComponent<Collider>().enabled = true;
+			shield.SetActive (true);
 			Debug.Log ("Shield Block");
+
+			playerAudio.PlayOneShot (shieldActivate);
+			canPlaySound = false;
 
 			//Blocking Animator Bool set to True
 			//anim.SetBool("Blocking", true);
@@ -56,13 +65,20 @@ public class AimBehaviour : GenericBehaviour
 			camScript.ResetMaxVerticalAngle ();
 
             //Shield Deactivates
-            shield.GetComponent<Collider>().enabled = false;
+            //shield.GetComponent<Collider>().enabled = false;
+			//shield.SetActive (false);
 
             // Unregister this behaviour and set current behaviour to the default one.
             //behaviourManager.UnregisterBehaviour (this.behaviourCode);
 
             //anim.SetBool("Blocking", false);
         }
+
+		if (Input.GetButtonUp("Aim") || canPlaySound)
+		{
+			canPlaySound = true;
+			shield.SetActive (false);
+		}
 
 		canSprint = !aim;
 

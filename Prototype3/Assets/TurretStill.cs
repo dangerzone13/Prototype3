@@ -7,8 +7,10 @@ public class TurretStill : MonoBehaviour
 
     public GameObject bullet;
     public GameObject player;
+	public Transform target;
     public GameObject spawnpoint;
     public GameObject powerbox;
+	public int speed = 10;
 
 
 
@@ -71,12 +73,13 @@ public class TurretStill : MonoBehaviour
             //animate 
             anim.SetBool("awake",true);
 
-            /*rotate to face player
+            //rotate to face player
             Vector3 targetDir = target.position - transform.position;
             float step = speed * Time.deltaTime;
-            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 2.0F);
+
             Debug.DrawRay(transform.position, newDir, Color.red);
-            bullet.transform.rotation = Quaternion.LookRotation(newDir);*/
+            bullet.transform.rotation = Quaternion.LookRotation(newDir);
   
         }
         else

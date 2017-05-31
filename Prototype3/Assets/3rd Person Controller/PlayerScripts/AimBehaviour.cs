@@ -21,9 +21,11 @@ public class AimBehaviour : GenericBehaviour
 		aimBool = Animator.StringToHash("Aim");
 
 		// Subscribe this behaviour on the manager.
-		behaviourManager.SubscribeBehaviour (this);
+		//behaviourManager.SubscribeBehaviour (this);
 
 		anim = GetComponent<Animator>();
+
+        
 	}
 
 	// Update is used to set features regardless the active behaviour.
@@ -36,10 +38,10 @@ public class AimBehaviour : GenericBehaviour
 		if (Input.GetButton("Aim")) 
 		{
 			// Register this behaviour.
-			behaviourManager.RegisterBehaviour (this.behaviourCode);
+			//behaviourManager.RegisterBehaviour (this.behaviourCode);
 
 			//Shield Activates
-			shield.SetActive (true);
+			shield.GetComponent<Collider>().enabled = true;
 
 			Debug.Log ("Shield Block");
 
@@ -47,20 +49,20 @@ public class AimBehaviour : GenericBehaviour
 			//anim.SetBool("Blocking", true);
 		} 
 		// Player just stopped aiming.
-		else if(behaviourManager.IsCurrentBehaviour(this.behaviourCode))
+		else //if(behaviourManager.IsCurrentBehaviour(this.behaviourCode))
 		{
 			// Ensure the camera will be back to original setup when is not aiming.
 			camScript.ResetTargetOffsets ();
 			camScript.ResetMaxVerticalAngle ();
 
-			//Shield Deactivates
-			shield.SetActive (false);
+            //Shield Deactivates
+            shield.GetComponent<Collider>().enabled = false;
 
-			// Unregister this behaviour and set current behaviour to the default one.
-			behaviourManager.UnregisterBehaviour (this.behaviourCode);
+            // Unregister this behaviour and set current behaviour to the default one.
+            //behaviourManager.UnregisterBehaviour (this.behaviourCode);
 
-			//anim.SetBool("Blocking", false);
-		}
+            //anim.SetBool("Blocking", false);
+        }
 
 		canSprint = !aim;
 

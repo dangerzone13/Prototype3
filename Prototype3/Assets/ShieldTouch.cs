@@ -55,4 +55,12 @@ public class ShieldTouch : MonoBehaviour
 			Debug.Log ("Touch4");
 		}
 	}
+
+	void OnTriggerEnter (Collider col)
+	{
+		if (col.gameObject.tag == "Player") 
+		{
+			Destroy (this);
+		}
+	}
 }

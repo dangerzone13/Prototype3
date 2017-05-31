@@ -31,6 +31,8 @@ public class ShieldThrow : MonoBehaviour {
 		prefab = shield;
 
 		anim = GetComponent<Animator>();
+
+		//shieldThrown = false;
 	}
 
 	// Update is called once per frame
@@ -43,7 +45,7 @@ public class ShieldThrow : MonoBehaviour {
 			//Shield Throw Wind Up Bool True
 			anim.SetBool ("Throw Wind Up", true);
 			throwActive = true;
-			shieldOnPlayer.SetActive (true);
+			//shieldOnPlayer.SetActive (true);
 
 			chargeCounter += 2;
 
@@ -53,6 +55,7 @@ public class ShieldThrow : MonoBehaviour {
 				playerAudio.PlayOneShot (shieldCharge);
 				canPlaySound = false;
 			} 
+
 			MyCharacterController.speed = 0;
 		}
 
@@ -67,7 +70,7 @@ public class ShieldThrow : MonoBehaviour {
 				//bullet angle
 				shield.transform.rotation = shield.transform.rotation;
 				Rigidbody rb = shield.GetComponent<Rigidbody> ();
-				rb.velocity = throwPoint.transform.forward * 30;
+				rb.velocity = throwPoint.transform.forward * 15;
 				gameObject.GetComponent<ShieldThrow> ().shield = null;
 			}
 			//Shield Throw Wind Up Bool False
@@ -79,13 +82,13 @@ public class ShieldThrow : MonoBehaviour {
 			canPlaySound = true;
 
 			shieldOnPlayer.SetActive (false);
-
 			shieldThrown = true;
 		} 
-		else 
+
+		if (MyCharacterController.shieldPickUp) 
 		{
+			shieldOnPlayer.SetActive (true);
 			shieldThrown = false;
-			//shieldOnPlayer.SetActive (true);
-		}
+		} 
 	}
 }

@@ -8,7 +8,9 @@ public class TurretStill : MonoBehaviour
     public GameObject bullet;
     public GameObject player;
     public GameObject spawnpoint;
-    public GameObject powerbox;
+    public GameObject splode;
+    public GameObject splode2;
+
 
 
 
@@ -52,6 +54,8 @@ public class TurretStill : MonoBehaviour
     {
         if (collision.gameObject.tag == "bulletdef" && ded == false && awake == true)
         {
+            Instantiate(splode2, spawnpoint.transform.position, splode2.transform.rotation);
+            DestroyObject(bullet);
             ded = true;
             anim.SetBool("awake", false);
         }
@@ -92,6 +96,7 @@ public class TurretStill : MonoBehaviour
         {
             //shoot bullet
             Instantiate(bullet, spawnpoint.transform.position, spawnpoint.transform.rotation);
+            Instantiate(splode, spawnpoint.transform.position, splode.transform.rotation);
         }
       
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MyCharacterController : MonoBehaviour 
 {
-	public float speed = 2f;
+	public static float speed = 2f;
 	public float rotationSpeed = 2.0f;
 	public bool moving;
 
@@ -25,6 +25,10 @@ public class MyCharacterController : MonoBehaviour
 	public bool aim; 
 	public bool shield;
 
+	public AudioSource playerAudio;
+	public AudioClip footSteps;
+	public bool canPlaySound = true;
+
 	private Animator anim;
 	// Use this for initialization
 	void Start () 
@@ -35,6 +39,8 @@ public class MyCharacterController : MonoBehaviour
 		anim.SetBool("Grounded", true);
 
 		controller = GetComponent<CharacterController>();
+
+		playerAudio = GetComponent<AudioSource>();
 
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
@@ -62,7 +68,7 @@ public class MyCharacterController : MonoBehaviour
 		} 
 		else 
 		{
-			Debug.Log ("Not Grounded");
+			//Debug.Log ("Not Grounded");
 			anim.SetBool ("Grounded", true);
 			anim.SetBool ("Jump", false);
 		}
@@ -82,7 +88,13 @@ public class MyCharacterController : MonoBehaviour
 		controller.Move(velocity * Time.deltaTime);
 		//Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 		//gameObject.GetComponent<CharacterController>().Move(transform.TransformDirection(input * speed * Time.deltaTime + yVelocity * Vector3.up * Time.deltaTime));
-	
+
+		//Play Footsteps when player moves
+		if (controller.velocity.sqrMagnitude > 0 && (moveVelocity.x != 0 || moveVelocity.y != 0))
+		{
+			//Debug.Log ("Play Footsteps");
+			playerAudio.PlayOneShot (footSteps);
+		}
 
 		//Activating Walk Cycle Animation
 		if (Input.GetAxis ("Vertical") != 0 || Input.GetAxis ("Horizontal") != 0) 

@@ -86,6 +86,7 @@ public class TurretStill : MonoBehaviour
         else
         {
             //animate down
+            gameObject.GetComponent<Animator>().enabled = true;
             anim.SetBool("awake", false);
         }
 
@@ -99,6 +100,10 @@ public class TurretStill : MonoBehaviour
             Instantiate(splode, spawnpoint.transform.position, splode.transform.rotation);
         }
       
+    }
+    void animateoff()
+    {
+        gameObject.GetComponent<Animator>().enabled = false;
     }
 
 }

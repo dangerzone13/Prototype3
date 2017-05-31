@@ -103,6 +103,7 @@
     <Compile Include="Assets\Scripts\ShieldScript.cs" />
     <Compile Include="Assets\Scripts\ShieldThrow.cs" />
     <Compile Include="Assets\Scripts\bulletscript.cs" />
+    <Compile Include="Assets\ShieldTouch.cs" />
     <Compile Include="Assets\TurretStill.cs" />
     <Compile Include="Assets\destroytimer.cs" />
     <Compile Include="Assets\doortrap.cs" />

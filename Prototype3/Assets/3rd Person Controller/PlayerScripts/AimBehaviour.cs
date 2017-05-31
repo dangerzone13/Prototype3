@@ -8,7 +8,7 @@ public class AimBehaviour : GenericBehaviour
 	public float aimTurnSmoothing = 15.0f;                                // Speed of turn response when aiming to match camera facing.
 	public Vector3 aimPivotOffset = new Vector3(0.0f, 1.7f,  -0.3f);      // Offset to repoint the camera when aiming.
 	public Vector3 aimCamOffset   = new Vector3(0.8f, 0.0f, -1.0f);       // Offset to relocate the camera when aiming.
-	public static GameObject shield;
+	public GameObject shield;
 
 	private int aimBool;                                                  // Animator variable related to aiming.
 	public bool aim;                                                     // Boolean to determine whether or not the player is aiming.
@@ -42,15 +42,10 @@ public class AimBehaviour : GenericBehaviour
 			shield.SetActive (true);
 
 			Debug.Log ("Shield Block");
-			//Block Animator Bool set to True
-			anim.SetBool ("Block", true);
 
 			//Blocking Animator Bool set to True
-			anim.SetBool("Blocking", true);
+			//anim.SetBool("Blocking", true);
 		} 
-
-		//If Player Moves While Blocking
-	
 		// Player just stopped aiming.
 		else if(behaviourManager.IsCurrentBehaviour(this.behaviourCode))
 		{
@@ -64,9 +59,7 @@ public class AimBehaviour : GenericBehaviour
 			// Unregister this behaviour and set current behaviour to the default one.
 			behaviourManager.UnregisterBehaviour (this.behaviourCode);
 
-			anim.SetBool ("Block", false);
-
-			anim.SetBool("Blocking", false);
+			//anim.SetBool("Blocking", false);
 		}
 
 		canSprint = !aim;

@@ -45,7 +45,7 @@ public class MovableObjects : MonoBehaviour
 		if (col.gameObject.tag == "Player") 
 		{
 			Debug.Log ("Player goes away");
-			rb.constraints = RigidbodyConstraints.None;
+			//rb.constraints = RigidbodyConstraints.None;
             rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
 	}

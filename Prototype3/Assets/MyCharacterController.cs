@@ -8,7 +8,7 @@ public class MyCharacterController : MonoBehaviour
 	public float rotationSpeed = 2.0f;
 	public bool moving;
 
-	public float jumpSpeed = 10.5f;
+	public float jumpSpeed = 15.5f;
 	public float gravity = 30.0f;
 
 	public float maxHeadRotation = 80.0f;
@@ -16,8 +16,8 @@ public class MyCharacterController : MonoBehaviour
 
 	public Transform head;
 
-	private float currentHeadRotation = 0;
-	private float yVelocity = 0;
+	private float currentHeadRotation = 0f;
+	private float yVelocity = 0f;
 
 	private CharacterController controller;
 	private Vector3 moveVelocity = Vector3.zero;
@@ -51,28 +51,23 @@ public class MyCharacterController : MonoBehaviour
 
 		Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-		if(!controller.isGrounded)
+		yVelocity = 0.0f;
+		//Jump Input
+		if (Input.GetButtonDown ("Jump")) 
 		{
-			Debug.Log ("Grounded");
-			//yVelocity = 0;
-
-			//Jump Input
-			if (Input.GetButtonDown("Jump"))
-			{
-				Debug.Log ("Jump");
-				yVelocity = jumpSpeed;
-			}
-				/*anim.SetBool ("Grounded", false);
-				anim.SetBool ("Jump", true);
-			} 
-			else 
-			{ 
-				anim.SetBool ("Grounded", true);
-				anim.SetBool ("Jump", false);
-			}*/
-
-			moveVelocity = transform.TransformDirection(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"))) * speed;
+			Debug.Log ("Jump");
+			yVelocity = jumpSpeed;
+			anim.SetBool ("Grounded", false);
+			anim.SetBool ("Jump", true);
+		} 
+		else 
+		{
+			Debug.Log ("Not Grounded");
+			anim.SetBool ("Grounded", true);
+			anim.SetBool ("Jump", false);
 		}
+	
+		moveVelocity = transform.TransformDirection (new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"))) * speed;
 
 		yVelocity -= gravity * Time.deltaTime;
 
@@ -83,7 +78,7 @@ public class MyCharacterController : MonoBehaviour
 		head.Rotate(Vector3.left, currentHeadRotation);
 
 		//Character Movement
-		Vector3 velocity = moveVelocity + yVelocity * Vector3.zero;
+		Vector3 velocity = moveVelocity + yVelocity * Vector3.up;
 		controller.Move(velocity * Time.deltaTime);
 		//Vector3 input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 		//gameObject.GetComponent<CharacterController>().Move(transform.TransformDirection(input * speed * Time.deltaTime + yVelocity * Vector3.up * Time.deltaTime));
@@ -125,24 +120,22 @@ public class MyCharacterController : MonoBehaviour
 			anim.SetBool ("Blocking", false);
 			anim.SetBool ("Move Blocking", false);
 		}
-
-		//If Shield is Active
-		if (AimBehaviour.shield) 
-		{
-			shield = true;
-		} 
-		else 
-		{
-			shield = false;
-		}
-
+			
 		if (aim) 
 		{
-			speed = 0.5f;
+			speed = 0.9f;
 		} 
 		else 
 		{
 			speed = 2.0f;
+		}
+	}
+
+	void OnCollisionEnter (Collision col)
+	{
+		if (col.gameObject.tag == "Ground") 
+		{
+			Debug.Log ("GROUND MOTHERFUCKER");
 		}
 	}
 }

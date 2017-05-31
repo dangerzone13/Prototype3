@@ -6,6 +6,8 @@ public class ShieldThrow : MonoBehaviour {
 
 	GameObject prefab;
 	public GameObject shield;
+	public GameObject shieldOnPlayer;
+	public bool shieldThrown;
 	public GameObject throwPoint;
 
 	public static bool throwActive;
@@ -41,6 +43,7 @@ public class ShieldThrow : MonoBehaviour {
 			//Shield Throw Wind Up Bool True
 			anim.SetBool ("Throw Wind Up", true);
 			throwActive = true;
+			shieldOnPlayer.SetActive (true);
 
 			chargeCounter += 2;
 
@@ -55,16 +58,16 @@ public class ShieldThrow : MonoBehaviour {
 
 		if (Input.GetMouseButtonUp (0)) 
 		{
-			if (chargeCounter >= 100)
+			if (chargeCounter >= 100) 
 			{
 				playerAudio.PlayOneShot (shieldThrow);
 				GameObject shield = Instantiate (prefab) as GameObject;
-				shield.transform.position = throwPoint.transform.position + throwPoint.transform.forward * 1;
+				shield.transform.position = throwPoint.transform.position + throwPoint.transform.forward;
 
 				//bullet angle
-				shield.transform.rotation = throwPoint.transform.rotation;
+				shield.transform.rotation = shield.transform.rotation;
 				Rigidbody rb = shield.GetComponent<Rigidbody> ();
-				rb.velocity = throwPoint.transform.forward * 40;
+				rb.velocity = throwPoint.transform.forward * 30;
 				gameObject.GetComponent<ShieldThrow> ().shield = null;
 			}
 			//Shield Throw Wind Up Bool False
@@ -74,6 +77,15 @@ public class ShieldThrow : MonoBehaviour {
 			chargeCounter = 0;
 
 			canPlaySound = true;
+
+			shieldOnPlayer.SetActive (false);
+
+			shieldThrown = true;
+		} 
+		else 
+		{
+			shieldThrown = false;
+			//shieldOnPlayer.SetActive (true);
 		}
 	}
 }

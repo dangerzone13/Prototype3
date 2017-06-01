@@ -11,7 +11,8 @@ public class ShieldTouch : MonoBehaviour
 
 	public bool canPlaySound = true;
 
-	private GameObject target;
+	GameObject player;
+	public Transform target;
 	private Vector3 targetPoint;
 	private Quaternion targetRotation;
 	private float speed = 5.0f;
@@ -20,20 +21,21 @@ public class ShieldTouch : MonoBehaviour
 	void Start () 
 	{
 		playerAudio = GetComponent <AudioSource> ();	
-
-		target = GameObject.FindWithTag("Shield Return");
+		target = GameObject.FindGameObjectWithTag ("ThisReturn").transform;
+		player = GameObject.FindGameObjectWithTag ("Player");
+		//target = GameObject.FindWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetMouseButton (0)) 
+		if (Input.GetMouseButton (1)) 
 		{
-			targetPoint = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z) - transform.position;
-			targetRotation = (Quaternion.LookRotation(targetPoint, Vector3.up) * Quaternion.Euler(0, 75, 0));
-			transform.rotation = (Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10.0f));
+			//targetPoint = new Vector3(target.transform.position.x, target.transform.position.y, target.transform.position.z) - transform.position;
+			//targetRotation = (Quaternion.LookRotation(targetPoint, Vector3.up) * Quaternion.Euler(0, 75, 0));
+			//transform.rotation = (Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10.0f));
 
-			transform.position = Vector3.MoveTowards (transform.position, targetPoint, speed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards (transform.position, target.position, speed * Time.deltaTime);
 		}
 	}
 
@@ -54,6 +56,11 @@ public class ShieldTouch : MonoBehaviour
 			playerAudio.PlayOneShot (objects2);
 			canPlaySound = false;
 			Debug.Log ("Touch2");
+		}
+
+		if (col.gameObject.tag == "Player") {
+			//player.GetComponent<ShieldThrow> ().GiveMeShield ();
+			Destroy (this.gameObject);
 		}
 	}
 
@@ -76,6 +83,7 @@ public class ShieldTouch : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Player") 
 		{
+			//player.GetComponent<ShieldThrow> ().GiveMeShield ();
 			Destroy (this.gameObject);
 		}
 	}

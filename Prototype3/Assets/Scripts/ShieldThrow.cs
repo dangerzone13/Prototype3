@@ -70,8 +70,10 @@ public class ShieldThrow : MonoBehaviour {
 				//bullet angle
 				shield.transform.rotation = shield.transform.rotation;
 				Rigidbody rb = shield.GetComponent<Rigidbody> ();
-				rb.velocity = throwPoint.transform.forward * 15;
-				gameObject.GetComponent<ShieldThrow> ().shield = null;
+				rb.velocity = throwPoint.transform.forward * 20;
+				//shieldThrown = true;
+				//shieldOnPlayer.SetActive (false);
+				//gameObject.GetComponent<ShieldThrow> ().shield = null;
 			}
 			//Shield Throw Wind Up Bool False
 			anim.SetBool ("Throw Wind Up", false);
@@ -82,13 +84,36 @@ public class ShieldThrow : MonoBehaviour {
 			canPlaySound = true;
 
 			shieldOnPlayer.SetActive (false);
-			shieldThrown = true;
+			//shieldThrown = true;
 		} 
 
-		if (MyCharacterController.shieldPickUp) 
+		/*if (!shieldThrow) {
+			shieldOnPlayer.SetActive (false);
+		}*/
+
+		//if (MyCharacterController.shieldPickUp) 
+		if(MyCharacterController.shieldPickUp)
 		{
+			//StartCoroutine ("ThrowShield");
 			shieldOnPlayer.SetActive (true);
 			shieldThrown = false;
 		} 
+
+		if (!shieldThrown) {
+			//shieldOnPlayer.SetActive (true);
+		}
+	}
+
+	IEnumerator ThrowShield () {
+		yield return new WaitForSeconds (0);
+		shieldOnPlayer.SetActive (true);
+		yield return new WaitForSeconds (0.1f);
+		shieldThrown = false;
+		StopCoroutine ("ThromShield");
+
+	}
+
+	public void GiveMeShield () {
+		//shieldOnPlayer.SetActive (true);
 	}
 }

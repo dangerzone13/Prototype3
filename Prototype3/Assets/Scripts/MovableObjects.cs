@@ -4,53 +4,55 @@ using UnityEngine;
 
 public class MovableObjects : MonoBehaviour 
 {
-	public GameObject player;
-	public GameObject shield;
-	public Rigidbody rb;
+	Rigidbody rb;
+	public bool shieldTouch;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
-		Rigidbody rb = GetComponent<Rigidbody>();
-        rb.constraints = RigidbodyConstraints.FreezePositionX;
-        rb.constraints = RigidbodyConstraints.FreezePositionZ;
+		rb = GetComponent<Rigidbody>();
+		//rb.constraints = RigidbodyConstraints.FreezeAll;
+        //rb.constraints = RigidbodyConstraints.FreezePositionZ;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		if (!shieldTouch) 
+		{
+			//rb.constraints = RigidbodyConstraints.FreezeAll;
+			rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX |RigidbodyConstraints.FreezeRotation;
+		}
+
+		if (shieldTouch)
+		{
+			rb.constraints = RigidbodyConstraints.None;
+			rb.constraints = RigidbodyConstraints.FreezeRotation;
+		}
 	}
 
 	//If Player Collides with Box, it will be immovable. If Shield Collides with Box, it will be movable.
-	void OnCollisionEnter (Collision col)
+	void OnCollisionStay (Collision col)
 	{
-		/*if (col.gameObject.tag == "Player") 
-		{
-			Debug.Log ("Player collides");
-			rb.constraints = RigidbodyConstraints.FreezeAll;
-		}*/
-
-		//Debug.Log("HIT! :" + col.gameObject);
-		//Debug.Log("HIT! Collider: " + col.collider.gameObject);
-
 		if (col.collider.gameObject.tag == "Shield") 
 		{
+			shieldTouch = true;
 			Debug.Log ("Shield collides");
-			rb.constraints = RigidbodyConstraints.None;
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
-        }
+		} 
+		else 
+		{
+			shieldTouch = false;
+		}
+
 	}
 
-	void OnCollisionExit (Collision col)
+	/*void OnCollisionExit (Collision col)
 	{
 		if (col.gameObject.tag == "Shield") 
 		{
+			shieldTouch = false;
 			Debug.Log ("Player goes away");
-			rb.constraints = RigidbodyConstraints.FreezePositionX;
-            rb.constraints = RigidbodyConstraints.FreezePositionZ;
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
-	}
+	}*/
 }

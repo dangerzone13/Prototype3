@@ -29,10 +29,12 @@ public class MyCharacterController : MonoBehaviour
 	public AudioSource playerAudio;
 	public AudioClip footSteps;
 	public bool canPlaySound = true;
+	public bool isGrounded = true;
 
 	public static bool shieldPickUp;
 
 	private Animator anim;
+	Rigidbody rb;
 	// Use this for initialization
 	void Start () 
 	{
@@ -40,6 +42,7 @@ public class MyCharacterController : MonoBehaviour
 
 		//Set Grounded Anim Bool to True
 		anim.SetBool("Grounded", true);
+		rb = GetComponent<Rigidbody> ();
 
 		controller = GetComponent<CharacterController>();
 
@@ -66,12 +69,18 @@ public class MyCharacterController : MonoBehaviour
 		{
             Vector3 fwd = transform.TransformDirection(Vector3.down);
             //Debug.Log("Jump");
-            yVelocity = jumpSpeed;
-            anim.SetBool("Grounded", false);
+			yVelocity += jumpSpeed;
+			//rb.AddForce(transform.up * jumpSpeed);
+			//anim.SetTrigger ("onGrounded");
+            //anim.SetBool("Grounded", false);
             anim.SetBool("Jump", true);
-            if (Physics.Raycast(transform.position, fwd, raydist)) { 
+			isGrounded = false;
+
+            /*if (Physics.Raycast(transform.position, fwd, raydist)) 
+			{ 
                     Debug.Log("There is something in front of the object!");
-            }
+            }*/
+			StartCoroutine ("FuckingJump");
       
 		} 
 		else 
@@ -172,4 +181,11 @@ public class MyCharacterController : MonoBehaviour
             Debug.Log("GROUND MOTHERFUCKER");
         }
     }
+
+	IEnumerator FuckingJump () {
+		//yield return new WaitForSeconds (0);
+		//yVelocity = jumpSpeed;
+		yield return new WaitForSeconds (1);
+		isGrounded = true;
+	}
 }

@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour {
 
 	public int PlayerMaxHealth = 100;
 	public int PlayerCurHealth = 100;
+
+	public CharacterController controller;
 
 	public GameObject playerMesh;
 	public AudioClip deathAudio;
@@ -108,12 +111,16 @@ public class PlayerHealth : MonoBehaviour {
 		ragHead.isKinematic = false;
 
 		playerAnim.enabled = false; // Required to fully apply RagDoll physics
-
-
-
-
-		yield return new WaitForSeconds(3);
+	
+		//yield return new WaitForSeconds(3);
 		//Destroy(gameObject);
+
+		controller.enabled = false;
+		GetComponent<CapsuleCollider> ().enabled = true;
+		GetComponent<MyCharacterController> ().enabled = false;
+
+		yield return new WaitForSeconds (5);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
 	void OnCollisionEnter (Collision col)

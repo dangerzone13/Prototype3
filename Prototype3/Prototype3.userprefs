@@ -1,18 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MyCharacterController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/generatorplug.cs">
     <Files>
-      <File FileName="Assets/PlayerHealth.cs" Line="122" Column="39" />
-      <File FileName="Assets/MyCharacterController.cs" Line="34" Column="33" />
-      <File FileName="Assets/Scripts/MovableObjects.cs" Line="1" Column="1" />
-      <File FileName="Assets/ShieldTouch.cs" Line="87" Column="4" />
-      <File FileName="Assets/Scripts/ShieldThrow.cs" Line="95" Column="40" />
-      <File FileName="Assets/3rd Person Controller/PlayerScripts/AimBehaviour.cs" Line="1" Column="1" />
-      <File FileName="Assets/turretrotation.cs" Line="18" Column="9" />
+      <File FileName="Assets/TurretStill.cs" Line="1" Column="1" />
+      <File FileName="Assets/PlayerHealth.cs" Line="15" Column="25" />
+      <File FileName="Assets/MyCharacterController.cs" Line="7" Column="31" />
+      <File FileName="Assets/Scripts/MovableObjects.cs" Line="16" Column="39" />
+      <File FileName="Assets/ShieldTouch.cs" Line="27" Column="3" />
+      <File FileName="Assets/Scripts/ShieldThrow.cs" Line="1" Column="1" />
+      <File FileName="Assets/3rd Person Controller/PlayerScripts/AimBehaviour.cs" Line="66" Column="4" />
+      <File FileName="Assets/turretrotation.cs" Line="12" Column="11" />
       <File FileName="Assets/BasicMovement.cs" Line="1" Column="1" />
       <File FileName="Assets/spiketrap.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ShieldScript.cs" Line="7" Column="2" />
-      <File FileName="Assets/3rd Person Controller/PlayerScripts/MoveBehaviour.cs" Line="53" Column="4" />
+      <File FileName="Assets/Scripts/ShieldScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/3rd Person Controller/PlayerScripts/MoveBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets/generatorplug.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

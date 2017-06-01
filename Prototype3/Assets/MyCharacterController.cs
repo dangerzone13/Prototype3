@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MyCharacterController : MonoBehaviour 
 {
-	public static float speed = 2f;
+	public static float speed = 4.0f;
 	public float rotationSpeed = 2.0f;
     public float raydist;
 	public bool moving;

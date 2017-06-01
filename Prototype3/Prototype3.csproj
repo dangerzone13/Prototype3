@@ -106,6 +106,7 @@
     <Compile Include="Assets\Scripts\bulletscript.cs" />
     <Compile Include="Assets\ShieldTouch.cs" />
     <Compile Include="Assets\TurretStill.cs" />
+    <Compile Include="Assets\changelevel.cs" />
     <Compile Include="Assets\destroytimer.cs" />
     <Compile Include="Assets\doortrap.cs" />
     <Compile Include="Assets\doortrapleft.cs" />

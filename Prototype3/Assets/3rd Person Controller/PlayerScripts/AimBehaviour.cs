@@ -89,7 +89,7 @@ public class AimBehaviour : GenericBehaviour
 		}
 
 		// Set aim boolean on the Animator Controller.
-		anim.SetBool (aimBool, aim);
+		//anim.SetBool (aimBool, aim);
 	}
 
 	// LocalFixedUpdate overrides the virtual function of the base class.

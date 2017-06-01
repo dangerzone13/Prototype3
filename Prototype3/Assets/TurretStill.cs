@@ -10,7 +10,6 @@ public class TurretStill : MonoBehaviour
     public GameObject spawnpoint;
     public GameObject splode;
     public GameObject splode2;
-	public Component Collider;
 
 
 
@@ -30,7 +29,6 @@ public class TurretStill : MonoBehaviour
         anim = GetComponent<Animator>();
         //set timer for shot intervals.
         InvokeRepeating("Spawn", spawntime, spawntime);
-
     }
 
     void OnTriggerEnter(Collider other)
@@ -59,7 +57,11 @@ public class TurretStill : MonoBehaviour
             Instantiate(splode2, spawnpoint.transform.position, splode2.transform.rotation);
             DestroyObject(bullet);
             ded = true;
+
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+
 			gameObject.GetComponent<CapsuleCollider> ().enabled = false;
+
             anim.SetBool("awake", false);
         }
     }

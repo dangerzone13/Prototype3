@@ -30,8 +30,8 @@ public class MovableObjects : MonoBehaviour
 			rb.constraints = RigidbodyConstraints.FreezeAll;
 		}*/
 
-		Debug.Log("HIT! :" + col.gameObject);
-		Debug.Log("HIT! Collider: " + col.collider.gameObject);
+		//Debug.Log("HIT! :" + col.gameObject);
+		//Debug.Log("HIT! Collider: " + col.collider.gameObject);
 
 		if (col.collider.gameObject.tag == "Shield") 
 		{

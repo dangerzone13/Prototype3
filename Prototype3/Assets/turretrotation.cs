@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class turretrotation : MonoBehaviour
 {
-     private GameObject target;
+    private GameObject target;
     private Vector3 targetPoint;
     private Quaternion targetRotation;
     void Start()

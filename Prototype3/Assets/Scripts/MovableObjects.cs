@@ -12,7 +12,9 @@ public class MovableObjects : MonoBehaviour
 	void Start () 
 	{
 		Rigidbody rb = GetComponent<Rigidbody>();
-        rb.constraints = RigidbodyConstraints.FreezeAll;
+        rb.constraints = RigidbodyConstraints.FreezePositionX;
+        rb.constraints = RigidbodyConstraints.FreezePositionZ;
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 	
 	// Update is called once per frame
@@ -46,7 +48,8 @@ public class MovableObjects : MonoBehaviour
 		if (col.gameObject.tag == "Shield") 
 		{
 			Debug.Log ("Player goes away");
-			rb.constraints = RigidbodyConstraints.FreezeAll;
+			rb.constraints = RigidbodyConstraints.FreezePositionX;
+            rb.constraints = RigidbodyConstraints.FreezePositionZ;
             rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
 	}

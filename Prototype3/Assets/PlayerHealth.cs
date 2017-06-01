@@ -120,7 +120,16 @@ public class PlayerHealth : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "bullet") 
 		{
+            Debug.Log("Oh noee");
 			PlayerCurHealth = 0;
 		}
 	}
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "bullet")
+        {
+            Debug.Log("Oh noee");
+            PlayerCurHealth = 0;
+        }
+    }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class spiketrap : MonoBehaviour {
 
     public Rigidbody Player;
+    public Component Evilcollider;
     public float backforce;
     private Animator anim;
 	// Use this for initialization
@@ -31,5 +32,13 @@ public class spiketrap : MonoBehaviour {
             Player.AddForce(Vector3.back * backforce, ForceMode.Acceleration);
             Debug.Log("Shield Hits Trap");
         }
+    }
+    void activatecollider()
+    {
+       // gameObject.GetComponent<Evilcollider>().enabled = true;
+    }
+    void deactivatecollider()
+    {
+
     }
 }

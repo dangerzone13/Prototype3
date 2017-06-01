@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Main Map.unity
+- path: Assets/scenes/enviroment_puzzle.unity
   isLoaded: 1
   isActive: 1

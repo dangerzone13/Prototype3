@@ -22,7 +22,7 @@ public class MovableObjects : MonoBehaviour
 		if (!shieldTouch) 
 		{
 			//rb.constraints = RigidbodyConstraints.FreezeAll;
-			rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX |RigidbodyConstraints.FreezeRotation;
+			rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotation;
 		}
 
 		if (shieldTouch)

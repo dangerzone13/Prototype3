@@ -29,6 +29,8 @@ public class MyCharacterController : MonoBehaviour
 	public AudioClip footSteps;
 	public bool canPlaySound = true;
 
+	public static bool shieldPickUp;
+
 	private Animator anim;
 	// Use this for initialization
 	void Start () 
@@ -148,6 +150,14 @@ public class MyCharacterController : MonoBehaviour
 		if (col.gameObject.tag == "Ground") 
 		{
 			Debug.Log ("GROUND MOTHERFUCKER");
+		}
+	}
+
+	void OnTriggerEnter (Collider col)
+	{
+		if (col.gameObject.tag == "Shield Projectile Prefab") 
+		{
+			shieldPickUp = true;
 		}
 	}
 }

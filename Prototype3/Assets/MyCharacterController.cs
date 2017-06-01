@@ -6,6 +6,7 @@ public class MyCharacterController : MonoBehaviour
 {
 	public static float speed = 2f;
 	public float rotationSpeed = 2.0f;
+    public float raydist;
 	public bool moving;
 
 	public float jumpSpeed = 15.5f;
@@ -63,15 +64,20 @@ public class MyCharacterController : MonoBehaviour
 		//Jump Input
 		if (Input.GetButtonDown ("Jump")) 
 		{
-			Debug.Log ("Jump");
-			yVelocity = jumpSpeed;
-			anim.SetBool ("Grounded", false);
-			anim.SetBool ("Jump", true);
+            Vector3 fwd = transform.TransformDirection(Vector3.down);
+            //Debug.Log("Jump");
+            yVelocity = jumpSpeed;
+            anim.SetBool("Grounded", false);
+            anim.SetBool("Jump", true);
+            if (Physics.Raycast(transform.position, fwd, raydist)) { 
+                    Debug.Log("There is something in front of the object!");
+            }
+      
 		} 
 		else 
 		{
 			//Debug.Log ("Not Grounded");
-			anim.SetBool ("Grounded", true);
+			//anim.SetBool ("Grounded", true);
 			anim.SetBool ("Jump", false);
 		}
 	
@@ -149,7 +155,8 @@ public class MyCharacterController : MonoBehaviour
 	{
 		if (col.gameObject.tag == "Ground") 
 		{
-			Debug.Log ("GROUND MOTHERFUCKER");
+            anim.SetBool("Grounded", true);
+            Debug.Log ("GROUND MOTHERFUCKER");
 		}
 	}
 
@@ -159,5 +166,10 @@ public class MyCharacterController : MonoBehaviour
 		{
 			shieldPickUp = true;
 		}
-	}
+        if (col.gameObject.tag == "Ground")
+        {
+            anim.SetBool("Grounded", true);
+            Debug.Log("GROUND MOTHERFUCKER");
+        }
+    }
 }

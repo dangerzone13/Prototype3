@@ -1,18 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MovableObjects.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MyCharacterController.cs">
     <Files>
-      <File FileName="Assets/Scripts/MovableObjects.cs" Line="57" Column="5" />
-      <File FileName="Assets/PlayerHealth.cs" Line="116" Column="5" />
-      <File FileName="Assets/TurretStill.cs" Line="1" Column="1" />
-      <File FileName="Assets/ShieldTouch.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ShieldThrow.cs" Line="1" Column="1" />
-      <File FileName="Assets/MyCharacterController.cs" Line="1" Column="1" />
+      <File FileName="Assets/PlayerHealth.cs" Line="122" Column="39" />
+      <File FileName="Assets/MyCharacterController.cs" Line="34" Column="33" />
+      <File FileName="Assets/Scripts/MovableObjects.cs" Line="1" Column="1" />
+      <File FileName="Assets/ShieldTouch.cs" Line="87" Column="4" />
+      <File FileName="Assets/Scripts/ShieldThrow.cs" Line="95" Column="40" />
       <File FileName="Assets/3rd Person Controller/PlayerScripts/AimBehaviour.cs" Line="1" Column="1" />
-      <File FileName="Assets/turretrotation.cs" Line="1" Column="1" />
+      <File FileName="Assets/turretrotation.cs" Line="18" Column="9" />
       <File FileName="Assets/BasicMovement.cs" Line="1" Column="1" />
       <File FileName="Assets/spiketrap.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/bulletscript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ShieldScript.cs" Line="7" Column="2" />
+      <File FileName="Assets/3rd Person Controller/PlayerScripts/MoveBehaviour.cs" Line="53" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

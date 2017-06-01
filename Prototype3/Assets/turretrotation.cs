@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class turretrotation : MonoBehaviour
 {
-    private GameObject target;
+    public GameObject target;
     private Vector3 targetPoint;
     private Quaternion targetRotation;
     void Start()
     {
-        target = GameObject.FindWithTag("Player");
+        //target = GameObject.FindWithTag("Player");
         //newposx = transform.position.x * 0.5;
     }
 

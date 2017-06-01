@@ -59,7 +59,7 @@ public class TurretStill : MonoBehaviour
             Instantiate(splode2, spawnpoint.transform.position, splode2.transform.rotation);
             DestroyObject(bullet);
             ded = true;
-			gameObject.GetComponent<Collider> ().enabled = false;
+			gameObject.GetComponent<CapsuleCollider> ().enabled = false;
             anim.SetBool("awake", false);
         }
     }
